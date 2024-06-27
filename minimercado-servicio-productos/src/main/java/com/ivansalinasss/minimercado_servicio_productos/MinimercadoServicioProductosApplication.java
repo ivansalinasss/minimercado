@@ -8,6 +8,8 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @SpringBootApplication
 public class MinimercadoServicioProductosApplication {
@@ -17,12 +19,13 @@ public class MinimercadoServicioProductosApplication {
 	}
 
 	@Bean
-	CommandLineRunner runner(ProductoRepository repository) {
-		return args -> {
-			Unidad unidad = new Unidad("Item", "item");
-			Producto producto = new Producto("Alfajor", 5, unidad, 5000);
-
-			repository.insert(producto);
+	public WebMvcConfigurer corsConfigurer() {
+		return new WebMvcConfigurer() {
+			@Override
+			public void addCorsMappings(CorsRegistry registry) {
+				registry.addMapping("/**")
+						.allowedOrigins("*");
+			}
 		};
 	}
 }
