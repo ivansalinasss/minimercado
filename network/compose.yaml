@@ -1,0 +1,21 @@
+services:
+  mongodb:
+    container_name: minimercado-db
+    image: mongo
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: puntos
+    ports:
+      - "27017:27017"
+    volumes:
+      - minimercado:/data/mongodb
+    networks:
+      - minimercado
+
+volumes:
+  minimercado:
+
+networks:
+  minimercado:
+    driver: bridge

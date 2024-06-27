@@ -1,0 +1,22 @@
+server:
+  port: 8090
+
+spring:
+  application:
+    name: minimercado-gateway
+
+  cloud:
+    gateway:
+      routes:
+        - id: servicio-productos
+          uri: http://localhost:8080
+          predicates:
+            - Path=/api/productos/**  # Ruta que el gateway redirigirá
+          filters:
+            - RewritePath=/example/(?<path>.*), /$\{path}  # Filtra la URL
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
