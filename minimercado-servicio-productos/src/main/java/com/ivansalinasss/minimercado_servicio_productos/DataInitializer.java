@@ -32,7 +32,7 @@ public class DataInitializer implements CommandLineRunner {
         mongoTemplate.getDb().drop();
 
         System.out.println("Poblando la base de datos con algunos productos");
-        Unidad item = new Unidad("Item", "item", 0);
+        Unidad item = new Unidad("Item", "items", 0);
         Unidad kilos = new Unidad("Kilogramos", "kgs");
 
         unidadRepository.save(item);
@@ -187,6 +187,7 @@ public class DataInitializer implements CommandLineRunner {
         productos.add(new Producto("Porotos paquete 1kg", 55, item, 900));
 
         productoRepository.saveAll(productos);
+
         System.out.println("Se pobló la db");
     }
 

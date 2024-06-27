@@ -1,6 +1,6 @@
 package com.ivansalinasss.minimercado_servicio_productos.controller;
 
-import com.ivansalinasss.minimercado_servicio_productos.model.Producto;
+import com.ivansalinasss.minimercado_servicio_productos.dto.ProductoDTO;
 import com.ivansalinasss.minimercado_servicio_productos.service.ProductoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,8 +20,8 @@ public class ProductoController {
         this.productoService = productoService;
     }
 
-    @GetMapping()
-    public List<Producto> listarProductos() {
+    @GetMapping("/listar")
+    public List<ProductoDTO> listarProductos() {
         return productoService.obtenerTodosLosProductos();
     }
 }
