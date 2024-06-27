@@ -30,7 +30,17 @@ services:
       - "8080:8080"
     networks:
       - minimercado
-      
+
+  api-gateway:
+    container_name: api-gateway
+    build:
+      context: ../gateway
+    restart: always
+    ports:
+      - "8090:8090"
+    networks:
+      - minimercado
+
 volumes:
   minimercado:
 
