@@ -1,0 +1,8 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: servicio-productos  # Identificador de la ruta
+          uri: http://localhost:8080  # URI del backend de destino
+          predicates:
+            - Path=/productos/**  # Ruta que interceptará el gateway

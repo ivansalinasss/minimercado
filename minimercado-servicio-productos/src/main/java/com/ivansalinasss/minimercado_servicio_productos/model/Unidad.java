@@ -1,11 +1,22 @@
-package com.ivansalinasss.minimercado_servicio_productos;
+package com.ivansalinasss.minimercado_servicio_productos.model;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+@Document(collection = "unidades")
 public class Unidad {
 
+    @Id
+    private String id;
     private String descripcion;
     private String abreviatura;
     private int cantidadDecimales = 2;
     private int redondeo = 3;
+
+    public Unidad(String descripcion, String abreviatura) {
+        this.descripcion = descripcion;
+        this.abreviatura = abreviatura;
+    }
 
     public String getDescripcion() {
         return descripcion;
