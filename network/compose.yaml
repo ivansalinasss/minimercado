@@ -13,6 +13,24 @@ services:
     networks:
       - minimercado
 
+  api:
+    container_name: minimercado-servicio-productos
+    build:
+      context: ../minimercado-servicio-productos
+    restart: always
+    environment:
+      SPRING_DATA_MONGODB_HOST: "mongodb"
+      SPRING_DATA_MONGODB_PORT: "27017"
+      SPRING_DATA_MONGODB_DATABASE: "consolidaciones"
+      SPRING_DATA_MONGODB_AUTHENTICATION-DATABASE: "admin"
+      SPRING_DATA_MONGODB_USERNAME: "root"
+      SPRING_DATA_MONGODB_PASSWORD: "puntos"
+      SPRING_APPLICATION_NAME: "minimercado-servicio-productos"
+    ports:
+      - "8080:8080"
+    networks:
+      - minimercado
+      
 volumes:
   minimercado:
 
