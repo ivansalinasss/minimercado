@@ -17,6 +17,9 @@ public class Producto {
     private Unidad unidad;
     private double precioUnitario;
 
+    public Producto() {
+    }
+
     public Producto(String nombre, double cantidad, Unidad unidad, double precioUnitario) {
         this.nombre = nombre;
         this.cantidad = cantidad;

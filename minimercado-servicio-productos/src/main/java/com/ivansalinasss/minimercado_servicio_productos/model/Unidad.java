@@ -13,9 +13,18 @@ public class Unidad {
     private int cantidadDecimales = 2;
     private int redondeo = 3;
 
+    public Unidad() {
+    }
+
     public Unidad(String descripcion, String abreviatura) {
         this.descripcion = descripcion;
         this.abreviatura = abreviatura;
+    }
+
+    public Unidad(String descripcion, String abreviatura, int cantidadDecimales) {
+        this.descripcion = descripcion;
+        this.abreviatura = abreviatura;
+        this.cantidadDecimales = cantidadDecimales;
     }
 
     public String getDescripcion() {
