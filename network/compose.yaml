@@ -31,15 +31,15 @@ services:
     networks:
       - minimercado
 
-  api-gateway:
-    container_name: api-gateway
-    build:
-      context: ../gateway
-    restart: always
-    ports:
-      - "8090:8090"
-    networks:
-      - minimercado
+  # api-gateway:
+  #   container_name: api-gateway
+  #   build:
+  #     context: ../gateway
+  #   restart: always
+  #   ports:
+  #     - "8090:8090"
+  #   networks:
+  #     - minimercado
 
   web:
     container_name: minimercado-web
