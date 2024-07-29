@@ -21,7 +21,7 @@ services:
     environment:
       SPRING_DATA_MONGODB_HOST: "mongodb"
       SPRING_DATA_MONGODB_PORT: "27017"
-      SPRING_DATA_MONGODB_DATABASE: "consolidaciones"
+      SPRING_DATA_MONGODB_DATABASE: "productos"
       SPRING_DATA_MONGODB_AUTHENTICATION-DATABASE: "admin"
       SPRING_DATA_MONGODB_USERNAME: "root"
       SPRING_DATA_MONGODB_PASSWORD: "puntos"
@@ -30,6 +30,8 @@ services:
       - "8080:8080"
     networks:
       - minimercado
+    depends_on:
+      - mongodb
 
   # api-gateway:
   #   container_name: api-gateway
